@@ -19,4 +19,13 @@ pprint.pp(snow_days)
 # filter can also be used on non-numerical data, like strings
 # TODO: create a subset that contains summer days with heavy rain (more than 1 in, about 2.5cm)
 def is_summer_rain_day(d):
-    return False
+    summer_rainy_days = []
+
+    for day in weatherdata:
+        if '-01-'and '-08-' in day['date'] and day["prcp"] > 1.0:
+            summer_rainy_days.append(day['date'])
+
+    return summer_rainy_days
+
+summer_rainy_days = is_summer_rain_day(weatherdata)
+summer_rainy_days
